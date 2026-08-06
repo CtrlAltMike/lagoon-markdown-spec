@@ -39,6 +39,11 @@ permission. Readers should preserve unrecognized manifest properties and safe
 archive entries when rewriting a package so future extensions survive a
 round trip.
 
+Agentic contributions are welcome. Work created or assisted by AI agents is
+evaluated under the same technical standards as human-authored work. See
+[Contributing](CONTRIBUTING.md#agentic-contributions) for the required
+responsibility and disclosure policy.
+
 ## License
 
 This specification, schema, and examples are available under the
