@@ -1,7 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Lagoon Markdown package manifest v1",
+  "title": "Lagoon Markdown package manifest v1, specification revision 1.1",
   "description": "Structural schema for lagoon.json. Unicode grapheme-cluster length limits require an additional implementation check.",
+  "$comment": "Specification revision 1.1 clarifies version 1 without changing the manifest formatVersion.",
   "type": "object",
   "required": [
     "format",
@@ -12,27 +13,34 @@
   ],
   "properties": {
     "format": {
+      "type": "string",
       "const": "com.ebbline.lagoon-markdown"
     },
     "formatVersion": {
-      "const": 1
+      "type": "integer",
+      "const": 1,
+      "$comment": "JSON Schema treats 1 and 1.0 as the same integer value. Writers should emit the canonical JSON token 1."
     },
     "role": {
+      "type": "string",
       "enum": ["document", "template"]
     },
     "entry": {
+      "type": "string",
       "const": "document.md"
     },
     "title": {
       "type": "string",
-      "pattern": "\\S"
+      "pattern": "\\S",
+      "$comment": "Must contain at most 120 extended grapheme clusters. JSON Schema maxLength is intentionally omitted because it counts Unicode code points."
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "$comment": "Must contain at most 500 extended grapheme clusters. JSON Schema maxLength is intentionally omitted because it counts Unicode code points."
     },
     "thumbnail": {
       "type": "string",
-      "pattern": "^[^/\\\\]+\\.(?:png|jpe?g|webp)$"
+      "pattern": "^[^/\\\\]+\\.(?:[Pp][Nn][Gg]|[Jj][Pp][Ee]?[Gg]|[Ww][Ee][Bb][Pp])$"
     },
     "creator": {
       "type": "string"

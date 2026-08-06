@@ -4,11 +4,14 @@ Lagoon Markdown (`.lmd`) is an open, ZIP-based container for a UTF-8
 Markdown document and its local images. It is a packaging format, not a new
 Markdown dialect.
 
-The current format version is **1**.
+The current format version is **1**. The current specification revision is
+**1.1**; specification revisions clarify version 1 without changing the
+on-disk `formatVersion` value.
 
 - [Read the v1 specification](SPEC.md)
 - [Validate a manifest with JSON Schema](schema/lmd-v1.schema.json)
 - [Inspect the minimal example](examples/basic)
+- [Review the revision history](CHANGELOG.md)
 
 ## Identification
 
