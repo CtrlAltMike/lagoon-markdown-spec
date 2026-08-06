@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lagoon Markdown package manifest v1",
+  "description": "Structural schema for lagoon.json. Unicode grapheme-cluster length limits require an additional implementation check.",
+  "type": "object",
+  "required": [
+    "format",
+    "formatVersion",
+    "role",
+    "entry",
+    "title"
+  ],
+  "properties": {
+    "format": {
+      "const": "com.ebbline.lagoon-markdown"
+    },
+    "formatVersion": {
+      "const": 1
+    },
+    "role": {
+      "enum": ["document", "template"]
+    },
+    "entry": {
+      "const": "document.md"
+    },
+    "title": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "description": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "type": "string",
+      "pattern": "^[^/\\\\]+\\.(?:png|jpe?g|webp)$"
+    },
+    "creator": {
+      "type": "string"
+    },
+    "license": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "role": {
+            "const": "template"
+          }
+        },
+        "required": ["role"]
+      },
+      "then": {
+        "required": ["description", "thumbnail"],
+        "properties": {
+          "description": {
+            "pattern": "\\S"
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": true
+}
