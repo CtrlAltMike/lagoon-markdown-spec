@@ -146,7 +146,9 @@ When `thumbnail` is present:
 SVG and animated GIF thumbnails are not permitted. A 1200 × 630 pixel image
 (about 1.91:1) is RECOMMENDED for catalog cards. Other dimensions are valid.
 Authors SHOULD keep important content centered because consumers may apply a
-cover crop.
+cover crop. For faster downloads and decoding, authors SHOULD prefer WebP and
+target a file size of 500 KiB (512,000 bytes) or less. This performance target
+is a recommendation; the 5 MiB limit above remains the conformance ceiling.
 
 ## 7. Assets
 
