@@ -14,3 +14,20 @@ For a normative change:
 Editorial clarifications that do not change conformance may remain in version
 1. Changes to required paths, validation rules, or field meanings require a
 new integer format version.
+
+## Agentic contributions
+
+Contributions created or assisted by AI agents are welcome and are evaluated
+under the same technical standards as human-authored contributions.
+
+The submitting human remains responsible for:
+
+- verifying technical accuracy and interoperability claims;
+- validating examples, schemas, and generated artifacts;
+- ensuring the contribution's provenance and license permit its submission;
+- disclosing material agent assistance in the pull-request description; and
+- responding to review feedback and correcting defects.
+
+An agent's output is supporting work, not evidence by itself. Normative changes
+must still cite reproducible behavior, published standards, or testable
+implementations as appropriate.
