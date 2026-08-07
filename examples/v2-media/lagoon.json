@@ -1,5 +1,6 @@
 {
   "entry": "document.md",
+  "backgroundColor": "#F7F1E3",
   "format": "com.ebbline.lagoon-markdown",
   "formatVersion": 2,
   "role": "document",

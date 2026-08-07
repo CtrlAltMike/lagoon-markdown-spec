@@ -123,6 +123,19 @@ Artwork presented on an arbitrary background may read as a pasted rectangle,
 particularly against Quick Look's surrounding chrome. Where practical, let the
 image's own material or subject define its background.
 
+### Choose a document background intentionally
+
+An LMD v2 manifest may declare an opaque sRGB `backgroundColor` such as
+`#F7F1E3`. Lagoon uses this preference for the full on-screen document canvas
+and chooses a light or dark content palette automatically. Other readers may
+ignore the preference.
+
+The document background is separate from the manifest thumbnail and does not
+tint Finder's small package artwork. It also does not prescribe print, PDF, or
+standalone HTML output. Authors should still verify that images, transparent
+artwork, code samples, diagrams, and embedded media remain legible against the
+chosen color in both Lagoon and Quick Look.
+
 ## Intentional full-screen imagery
 
 Using the entire first screen for an image can be effective when the image
@@ -189,6 +202,8 @@ Before publishing an `.lmd` document:
 - Verify that audio and video never depend on autoplay.
 - Add a useful poster and WebVTT captions to video.
 - Confirm the preview works without network access.
+- If `backgroundColor` is present, verify that the complete Quick Look canvas
+  uses it and that text, diagrams, and transparent images remain readable.
 - Open the same package in Lagoon and verify the complete document and all
   referenced media.
 

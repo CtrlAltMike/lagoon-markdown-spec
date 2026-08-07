@@ -5,6 +5,18 @@ a format version. It does not itself change the `formatVersion` value stored in
 `lagoon.json`. Revisions normally clarify an existing format; any exceptional
 pre-adoption correction is recorded explicitly below.
 
+## Revision 2.2 — 2026-08-07
+
+- Add optional opaque sRGB `backgroundColor` manifest metadata for the
+  preferred on-screen document canvas.
+- Clarify that readers may ignore the preference, should select readable
+  content colors when honoring it, and need not apply it to thumbnails,
+  printing, PDF, standalone HTML, or application chrome.
+- Add Quick Look authoring guidance and a v2 example background without
+  changing package `formatVersion`.
+- Define deterministic promotion of a same-named v1 extension during an
+  upgrade, rejecting invalid values instead of discarding them.
+
 ## Revision 2.1 — 2026-08-07
 
 - Restore the v1 rule that every regular file other than `document.md` has a

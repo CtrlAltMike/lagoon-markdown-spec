@@ -4,7 +4,7 @@ Status: stable
 
 Format version: `2`
 
-Specification revision: `2.1`
+Specification revision: `2.2`
 
 > **Authoring companion:**
 > [Authoring `.lmd` Documents for Quick Look](QUICK_LOOK_AUTHORING.md) is well
@@ -126,7 +126,8 @@ field:
   "description": "A concise project brief.",
   "thumbnail": "thumbnail.webp",
   "creator": "Example Author",
-  "license": "CC-BY-4.0"
+  "license": "CC-BY-4.0",
+  "backgroundColor": "#F7F1E3"
 }
 ```
 
@@ -143,6 +144,7 @@ field:
 | `thumbnail` | string | Optional for documents; REQUIRED for templates. See section 6. |
 | `creator` | string | Optional creator or publisher attribution. |
 | `license` | string | Optional license identifier or short license statement. |
+| `backgroundColor` | string | Optional preferred on-screen document background. MUST be an opaque sRGB color in `#RRGGBB` form. |
 
 The limits on `title` and `description` count Unicode extended grapheme
 clusters. Leading and trailing whitespace count toward the maximum but do not
@@ -152,12 +154,26 @@ The JSON numeric values `2` and `2.0` are equal under JSON Schema's mathematical
 integer semantics. Writers SHOULD serialize `formatVersion` in its canonical
 form as the JSON token `2`.
 
+When `backgroundColor` is present, each hexadecimal pair represents the red,
+green, and blue channel of an opaque sRGB color. Hexadecimal digits are ASCII
+case-insensitive; writers SHOULD emit uppercase digits. Alpha-bearing, named,
+functional, and color-profile-dependent representations are not permitted.
+
+The field is a presentation preference for the on-screen document canvas. A
+reader MAY ignore it. A reader that honors it SHOULD select foreground,
+control, border, code, and diagram colors that remain readable. The field does
+not define Finder thumbnail artwork, printed or PDF page color, exported HTML
+appearance, or application chrome.
+
 ### 5.2 Extensions
 
 A manifest MAY contain additional properties with any JSON value. Writers
 MUST NOT reuse a v2 field name with incompatible meaning. Readers MUST ignore
 unrecognized properties. A reader that rewrites a supported package SHOULD
 preserve them without changing their JSON value.
+
+Because `backgroundColor` is optional, older v2 readers remain conforming when
+they ignore it and preserve it as an unrecognized property.
 
 The accompanying [JSON Schema](schema/lmd-v2.schema.json) checks portable
 structural requirements. It intentionally omits `maxLength` for `title` and
@@ -290,6 +306,8 @@ removes them.
 A reader SHOULD open a `document` for editing. It SHOULD treat a `template` as
 read-only source material and offer an explicit copy operation. A copied
 template MUST use role `document`; the original template MUST remain unchanged.
+A copy SHOULD preserve optional manifest metadata, including `backgroundColor`,
+unless the user explicitly changes or removes it.
 
 `creator` and `license` are optional format fields. A distribution catalog MAY
 require them as a separate publishing policy.
@@ -307,6 +325,15 @@ validation rules, or field meanings requires a new integer format version.
 Revision 2.1's restoration of v1's general per-entry limit is an explicit
 pre-adoption correction to an internal v2.0 regression; it is not a general
 precedent for changing a stable format in place.
+
+Revision 2.2 standardizes the optional `backgroundColor` presentation property
+without changing `formatVersion`. It is compatible with v2's
+additional-property rules because older readers may ignore and preserve it.
+When a writer upgrades a v1 package that already contains an extension property
+named `backgroundColor`, it MUST promote that value only when it satisfies the
+v2 field definition. An invalid value MUST cause the upgrade to fail rather
+than being discarded or reinterpreted. Merely opening or rewriting an
+otherwise unchanged v1 package does not require an upgrade.
 
 ## 11. Security and privacy considerations
 

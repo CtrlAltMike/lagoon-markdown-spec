@@ -5,7 +5,7 @@ document and its local images and media. It is a packaging format, not a new
 Markdown dialect.
 
 The current format version is **2**. The current specification revision is
-**2.1**. Version 1 remains documented for compatibility at specification
+**2.2**. Version 1 remains documented for compatibility at specification
 revision **1.3**.
 
 - [Read the current v2 specification](SPEC-v2.md)

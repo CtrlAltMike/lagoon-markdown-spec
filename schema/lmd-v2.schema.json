@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Lagoon Markdown package manifest v2, specification revision 2.1",
+  "title": "Lagoon Markdown package manifest v2, specification revision 2.2",
   "description": "Structural schema for lagoon.json. Unicode grapheme-cluster length limits and archive-entry validation require additional implementation checks.",
   "$comment": "Image bytes, square thumbnail dimensions, ZIP paths, and media signatures cannot be validated by this manifest-only schema.",
   "type": "object",
@@ -48,6 +48,11 @@
     },
     "license": {
       "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$",
+      "$comment": "Optional preferred on-screen document background. Writers should emit uppercase opaque sRGB hex."
     }
   },
   "allOf": [

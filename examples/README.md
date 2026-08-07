@@ -4,7 +4,8 @@
 It intentionally contains no directory entries or assets.
 
 `v2-media.lmd` is a v2 document package built from `v2-media/`. It contains a
-small deterministic WAV title track under `media/`.
+small deterministic WAV title track under `media/` and declares an optional
+warm on-screen document background.
 
 Rebuild it from the repository root:
 
