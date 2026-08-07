@@ -7,7 +7,7 @@ Status: stable
 
 Format version: `1`
 
-Specification revision: `1.2`
+Specification revision: `1.3`
 
 The key words **MUST**, **MUST NOT**, **REQUIRED**, **SHOULD**, **SHOULD NOT**,
 and **MAY** in this document are to be interpreted as normative requirements.
@@ -70,8 +70,8 @@ A conforming v1 package MUST meet all of these requirements:
 | ZIP64 | Prohibited |
 
 `document.md` MUST NOT exceed 5 MiB (5,242,880 bytes). Each other regular file
-MUST NOT exceed 25 MiB (26,214,400 bytes), with the smaller thumbnail limit in
-section 6 taking precedence.
+MUST NOT exceed 25 MiB (26,214,400 bytes). The 5 MiB thumbnail limit in
+section 6 and the 8 MiB SVG limit in section 7.2 take precedence.
 
 An implementation SHOULD store already-compressed raster images rather than
 deflating them again.
@@ -161,7 +161,7 @@ When `thumbnail` is present:
 - its value MUST be a valid path naming an existing root-level regular file;
 - the value MUST NOT contain `/`;
 - the file MUST be PNG (`.png`), JPEG (`.jpg` or `.jpeg`), or WebP (`.webp`);
-- the extension and encoded image type MUST agree; and
+- the extension and encoded image type MUST agree;
 - the decoded pixel width MUST equal the decoded pixel height; and
 - the file MUST NOT exceed 5 MiB (5,242,880 bytes).
 

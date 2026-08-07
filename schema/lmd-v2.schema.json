@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Lagoon Markdown package manifest v2, specification revision 2.0",
+  "title": "Lagoon Markdown package manifest v2, specification revision 2.1",
   "description": "Structural schema for lagoon.json. Unicode grapheme-cluster length limits and archive-entry validation require additional implementation checks.",
   "$comment": "Image bytes, square thumbnail dimensions, ZIP paths, and media signatures cannot be validated by this manifest-only schema.",
   "type": "object",

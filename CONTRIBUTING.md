@@ -15,8 +15,9 @@ For a normative change:
 Editorial clarifications that do not change conformance may increment a
 specification revision without changing `formatVersion`. Changes to required
 paths, validation rules, or field meanings require a new integer format
-version. The v1 revision 1.2 square-thumbnail correction was an explicit
-pre-adoption exception and must not be treated as general precedent.
+version. The v1 revision 1.2 square-thumbnail correction and v2 revision 2.1
+restoration of the general per-entry limit were explicit pre-adoption
+exceptions and must not be treated as general precedent.
 
 ## Agentic contributions
 

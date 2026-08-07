@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Lagoon Markdown package manifest v1, specification revision 1.2",
+  "title": "Lagoon Markdown package manifest v1, specification revision 1.3",
   "description": "Structural schema for lagoon.json. Unicode grapheme-cluster length limits require an additional implementation check.",
-  "$comment": "Specification revision 1.2 requires a square decoded thumbnail canvas without changing the manifest formatVersion. Image bytes and dimensions require validation outside JSON Schema.",
+  "$comment": "Specification revision 1.2 introduced the square decoded thumbnail requirement without changing the manifest formatVersion. Image bytes and dimensions require validation outside JSON Schema.",
   "type": "object",
   "required": [
     "format",

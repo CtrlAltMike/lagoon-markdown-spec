@@ -5,6 +5,23 @@ a format version. It does not itself change the `formatVersion` value stored in
 `lagoon.json`. Revisions normally clarify an existing format; any exceptional
 pre-adoption correction is recorded explicitly below.
 
+## Revision 2.1 — 2026-08-07
+
+- Restore the v1 rule that every regular file other than `document.md` has a
+  25 MiB per-entry limit. Revision 2.0 accidentally narrowed this wording to
+  image and media entries despite permitting safe extension files.
+- State explicitly that both the 5 MiB thumbnail limit and the 8 MiB passive
+  SVG limit take precedence over the general 25 MiB entry limit.
+- Record the restored general entry limit as a pre-adoption correction; the
+  package `formatVersion` remains `2`.
+
+## Revision 1.3 — 2026-08-07
+
+- State explicitly that both the 5 MiB thumbnail limit and the 8 MiB passive
+  SVG limit take precedence over the general 25 MiB entry limit.
+- Correct the thumbnail requirement list's conjunction punctuation without
+  changing conformance.
+
 ## Revision 2.0 — 2026-08-07
 
 - Publish Lagoon Markdown package format version 2.

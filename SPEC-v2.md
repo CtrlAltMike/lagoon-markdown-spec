@@ -4,7 +4,7 @@ Status: stable
 
 Format version: `2`
 
-Specification revision: `2.0`
+Specification revision: `2.1`
 
 > **Authoring companion:**
 > [Authoring `.lmd` Documents for Quick Look](QUICK_LOOK_AUTHORING.md) is well
@@ -82,9 +82,9 @@ A conforming v2 package MUST meet all of these requirements:
 | Multi-disk archives | Prohibited |
 | ZIP64 | Prohibited |
 
-`document.md` MUST NOT exceed 5 MiB (5,242,880 bytes). Each image or media
-entry MUST NOT exceed 25 MiB (26,214,400 bytes), with the smaller thumbnail
-limit in section 6 taking precedence.
+`document.md` MUST NOT exceed 5 MiB (5,242,880 bytes). Each other regular file
+MUST NOT exceed 25 MiB (26,214,400 bytes). The 5 MiB thumbnail limit in
+section 6 and the 8 MiB SVG limit in section 7.2 take precedence.
 
 Writers SHOULD use ZIP method STORE for raster-image and media formats whose
 payloads are already compressed rather than deflating them again.
@@ -304,6 +304,9 @@ media under the reserved `media/` namespace MUST set `formatVersion` to `2`.
 Future compatible metadata can use additional manifest properties and safe
 archive entries. A change that alters required paths, reserved namespaces,
 validation rules, or field meanings requires a new integer format version.
+Revision 2.1's restoration of v1's general per-entry limit is an explicit
+pre-adoption correction to an internal v2.0 regression; it is not a general
+precedent for changing a stable format in place.
 
 ## 11. Security and privacy considerations
 
