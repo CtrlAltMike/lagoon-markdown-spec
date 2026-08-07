@@ -1,10 +1,13 @@
 # Lagoon Markdown package format, version 1
 
+> This legacy version remains supported for compatibility. New packages should
+> use [format version 2](SPEC-v2.md).
+
 Status: stable
 
 Format version: `1`
 
-Specification revision: `1.1`
+Specification revision: `1.2`
 
 The key words **MUST**, **MUST NOT**, **REQUIRED**, **SHOULD**, **SHOULD NOT**,
 and **MAY** in this document are to be interpreted as normative requirements.
@@ -159,18 +162,20 @@ When `thumbnail` is present:
 - the value MUST NOT contain `/`;
 - the file MUST be PNG (`.png`), JPEG (`.jpg` or `.jpeg`), or WebP (`.webp`);
 - the extension and encoded image type MUST agree; and
+- the decoded pixel width MUST equal the decoded pixel height; and
 - the file MUST NOT exceed 5 MiB (5,242,880 bytes).
 
 Thumbnail-extension matching is ASCII case-insensitive; for example,
 `thumbnail.png` and `COVER.PNG` are both valid names when their contents are
 PNG images.
 
-SVG and animated GIF thumbnails are not permitted. A 1200 × 630 pixel image
-(about 1.91:1) is RECOMMENDED for catalog cards. Other dimensions are valid.
-Authors SHOULD keep important content centered because consumers may apply a
-cover crop. For faster downloads and decoding, authors SHOULD prefer WebP and
-target a file size of 500 KiB (512,000 bytes) or less. This performance target
-is a recommendation; the 5 MiB limit above remains the conformance ceiling.
+SVG and animated GIF thumbnails are not permitted. A thumbnail MUST use a
+square 1:1 canvas because Finder and Quick Look expect square package artwork.
+The thumbnail is distinct from a lead image rendered inside `document.md`,
+which may use any dimensions allowed by section 7. For faster downloads and
+decoding, authors SHOULD prefer WebP and target a file size of 500 KiB
+(512,000 bytes) or less. This performance target is a recommendation; the
+5 MiB limit above remains the conformance ceiling.
 
 ## 7. Assets
 
@@ -236,7 +241,9 @@ support.
 Future compatible metadata can use additional manifest properties and safe
 archive entries. This is why round-trip preservation is strongly recommended.
 A change that alters required paths, validation rules, or field meanings
-requires a new integer format version.
+requires a new integer format version. Revision 1.2's square-thumbnail rule is
+an explicit pre-adoption correction made immediately after initial publication;
+it is not a general precedent for changing a stable format in place.
 
 ## 10. Security considerations
 

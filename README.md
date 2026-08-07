@@ -1,17 +1,31 @@
 # Lagoon Markdown package format
 
-Lagoon Markdown (`.lmd`) is an open, ZIP-based container for a UTF-8
-Markdown document and its local images. It is a packaging format, not a new
+Lagoon Markdown (`.lmd`) is an open, ZIP-based container for a UTF-8 Markdown
+document and its local images and media. It is a packaging format, not a new
 Markdown dialect.
 
-The current format version is **1**. The current specification revision is
-**1.1**; specification revisions clarify version 1 without changing the
-on-disk `formatVersion` value.
+The current format version is **2**. The current specification revision is
+**2.0**. Version 1 remains documented for compatibility at specification
+revision **1.2**.
 
-- [Read the v1 specification](SPEC.md)
-- [Validate a manifest with JSON Schema](schema/lmd-v1.schema.json)
-- [Inspect the minimal example](examples/basic)
+- [Read the current v2 specification](SPEC-v2.md)
+- [Read the legacy v1 specification](SPEC.md)
+- [Validate a v2 manifest with JSON Schema](schema/lmd-v2.schema.json)
+- [Validate a v1 manifest with JSON Schema](schema/lmd-v1.schema.json)
+- [Inspect the examples](examples/README.md)
+- [Read the playback and Quick Look profile](PLAYBACK.md)
+- [Read the Quick Look authoring guide](QUICK_LOOK_AUTHORING.md) — it is well
+  worth reading before designing a package preview
+- [Review template submission guidance](TEMPLATE_SUBMISSIONS.md)
 - [Review the revision history](CHANGELOG.md)
+
+## Canonical source
+
+This repository is the sole canonical source for the Lagoon Markdown package
+specification, its schemas, examples, and format-authoring guidance. Product
+repositories and websites may link to or summarize the specification, but a
+summary is non-normative. If another source conflicts with this repository,
+this repository controls.
 
 ## Identification
 
@@ -21,12 +35,14 @@ on-disk `formatVersion` value.
 | Media type | `application/vnd.ebbline.lagoon-markdown` |
 | Uniform Type Identifier | `com.ebbline.lagoon-markdown` |
 
-## Minimal package
+## Minimal v2 package
 
 ```text
 notes.lmd
 ├── lagoon.json
-└── document.md
+├── document.md
+└── media/
+    └── title.wav
 ```
 
 An `.lmd` file can be inspected with any ZIP utility. Rename a copy to `.zip`
@@ -46,5 +62,5 @@ responsibility and disclosure policy.
 
 ## License
 
-This specification, schema, and examples are available under the
+The specifications, schemas, examples, and guides are available under the
 [MIT License](LICENSE).

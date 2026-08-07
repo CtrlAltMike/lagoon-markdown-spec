@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Lagoon Markdown package manifest v1, specification revision 1.2",
-  "description": "Structural schema for lagoon.json. Unicode grapheme-cluster length limits require an additional implementation check.",
-  "$comment": "Specification revision 1.2 requires a square decoded thumbnail canvas without changing the manifest formatVersion. Image bytes and dimensions require validation outside JSON Schema.",
+  "title": "Lagoon Markdown package manifest v2, specification revision 2.0",
+  "description": "Structural schema for lagoon.json. Unicode grapheme-cluster length limits and archive-entry validation require additional implementation checks.",
+  "$comment": "Image bytes, square thumbnail dimensions, ZIP paths, and media signatures cannot be validated by this manifest-only schema.",
   "type": "object",
   "required": [
     "format",
@@ -18,8 +18,8 @@
     },
     "formatVersion": {
       "type": "integer",
-      "const": 1,
-      "$comment": "JSON Schema treats 1 and 1.0 as the same integer value. Writers should emit the canonical JSON token 1."
+      "const": 2,
+      "$comment": "JSON Schema treats 2 and 2.0 as the same integer value. Writers should emit the canonical JSON token 2."
     },
     "role": {
       "type": "string",
